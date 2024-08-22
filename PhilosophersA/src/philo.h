@@ -6,7 +6,7 @@
 /*   By: luissanchez <luissanchez@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:13:50 by luisanch          #+#    #+#             */
-/*   Updated: 2024/08/22 18:22:35 by luissanchez      ###   ########.fr       */
+/*   Updated: 2024/08/22 18:53:02 by luissanchez      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_program
 int check_nbr_args(char **argv);
 int check_content(char *arg);
 void destroy(char *string, t_program *program, pthread_mutex_t *fork);
+int ft_error_printing(char *str);
 
 //init.c
 void init_input(t_philo *philo, char **argv);

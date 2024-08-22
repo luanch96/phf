@@ -6,7 +6,7 @@
 /*   By: luissanchez <luissanchez@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 16:45:49 by luisanch          #+#    #+#             */
-/*   Updated: 2024/08/22 18:21:41 by luissanchez      ###   ########.fr       */
+/*   Updated: 2024/08/22 18:57:27 by luissanchez      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,15 @@ int check_content(char *arg)
 int check_nbr_args(char **argv)
 {
     if (ft_atoi(argv[1]) > PHILO_MAX || ft_atoi(argv[1]) <= 0)
-            return (write(2, "Not a valid philosopher number\n", 31), 1);
+            return (ft_error_printing("Invalid number philosophers\n"));
     if (ft_atoi(argv[2]) <= 0 || check_content(argv[2]) == 1)
-            return (write(2, "Not valid time to die\n", 22), 1);
+            return (ft_error_printing("Invalid time to die\n"));
     if (ft_atoi(argv[3]) <= 0 || check_content(argv[3]) == 1)
-            return (write(2, "Not valid time to eat\n", 22), 1);
+            return (ft_error_printing("Invalid time to eat\n"));
     if (ft_atoi(argv[4]) <= 0 || check_content(argv[4]) == 1)
-            return (write(2, "Not valid time to sleep\n", 24), 1);
+            return (ft_error_printing("Invalid dream time\n"));
     if (argv[5] && (ft_atoi(argv[5]) < 0 || check_content(argv[5]) == 1))
-            return (write(2, "Not a number of times to eat\n", 29), 1);
+            return (ft_error_printing("Invalid meals\n"));
     return(0);
 }
 
@@ -64,7 +64,7 @@ int main (int argc, char **argv)
     pthread_mutex_t forks[PHILO_MAX];
 
     if (argc != 5 && argc != 6)
-        return (write(2, "Wrong number arguments", 23), 1);
+        return (ft_error_printing("Wrong argument nbr\n"));
     if (check_nbr_args(argv) == 1)
         return(1);
     init_program(&program, philos);

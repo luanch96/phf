@@ -6,11 +6,20 @@
 /*   By: luissanchez <luissanchez@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:03:10 by luisanch          #+#    #+#             */
-/*   Updated: 2024/08/22 18:29:39 by luissanchez      ###   ########.fr       */
+/*   Updated: 2024/08/22 19:12:23 by luissanchez      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int ft_error_printing(char *str)
+{
+    int i;
+
+    i = 0;
+    i = printf("%s", str);
+    return(i);
+}
 
 int ft_strlen (char *str)
 {
@@ -61,6 +70,6 @@ int ft_usleep (size_t miliseconds)
 
     start = get_time();
     while((get_time() - start) < miliseconds)
-        ft_usleep(500);
+        usleep(500);
     return(0);
 }
